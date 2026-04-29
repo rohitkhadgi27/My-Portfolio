@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { HomePage } from '../Home/HomePage';
-import { AboutMePage } from '../About/AboutMePage';
+import { AboutPage } from '../About/AboutPage';
 import { ProjectPage } from '../Projects/ProjectPage';
 import { ContactPage } from '../Contact/ContactPage';
 import { SkillsPage } from '../Skills/SkillsPage';
@@ -27,7 +27,7 @@ const pages = ['HOME', 'PROJECTS', 'ABOUT', 'SKILLS','CONTACT'];
 function ResponsiveAppBar() {
 
   //reference for the menu when opened in appbar 
-  const refMenu = React.useRef(null);
+  const refMenu = React.useRef<HTMLDivElement>(null);
 
   const [pageSelected, setPageSelected] = React.useState('HOME');
 
@@ -52,7 +52,7 @@ function ResponsiveAppBar() {
 
   //checks if clicked outside or inside when the menu item is opened inside the appbar
   const handleClickOutside = (e) => {
-    if(!refMenu.current.contains(e.target)){
+    if(refMenu.current && !refMenu.current.contains(e.target)){
       setAnchorElNav(null);
     } else {
       setAnchorElNav(null);
@@ -121,7 +121,7 @@ function ResponsiveAppBar() {
                   >
                     {pages.map((page) => (
                       <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
-                        <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                        <Typography sx={{ textAlign: 'center', '&:hover': { color: 'yellow' } }}>{page}</Typography>
                       </MenuItem>
                     ))}
                   </Menu>
@@ -158,11 +158,11 @@ function ResponsiveAppBar() {
           </Container>
         </AppBar>     
         </ThemeProvider>
-        { pageSelected == 'HOME' && <HomePage /> }
-        { pageSelected == 'PROJECTS' && <ProjectPage /> }
-        { pageSelected == 'ABOUT' && <AboutMePage /> }
-        { pageSelected == 'SKILLS' && <SkillsPage /> }
-        { pageSelected == 'CONTACT' && <ContactPage /> }
+        {pageSelected === 'HOME' && <HomePage />}
+        {pageSelected === 'PROJECTS' && <ProjectPage />}
+        {pageSelected === 'ABOUT' && <AboutPage />}
+        {pageSelected === 'SKILLS' && <SkillsPage />}
+        {pageSelected === 'CONTACT' && <ContactPage />}
     </>  
   );
 }

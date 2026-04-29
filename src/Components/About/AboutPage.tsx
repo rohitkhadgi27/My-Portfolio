@@ -8,7 +8,7 @@ import {
   CardActionArea,
 } from "@mui/material";
 
-export const AboutMePage = () => {
+export const AboutPage = () => {
   return (
       <Box
           sx={{ display : {xs: "grid", md: "flex" }, gap: 0.5, m: 0.5 }}
@@ -18,7 +18,7 @@ export const AboutMePage = () => {
         {/* Image Card */}    
           <Card
             sx={{
-              borderRadius: 3,
+              borderRadius: 2,
               boxShadow: 4,
               background: "#000",
               color: "#fff",
@@ -32,7 +32,7 @@ export const AboutMePage = () => {
               sx={{  objectFit: "cover",}}
             />
             <CardContent>
-              <Typography variant="h5" fontWeight={700}>
+              <Typography variant="h5" sx={{ fontWeight: 700 }}>
                 Rohit
               </Typography>
               <Typography variant="body2" sx={{ color: "#bbb" }}>
@@ -51,7 +51,10 @@ export const AboutMePage = () => {
               boxShadow: 4,
             }}
           >
-            <Typography variant="h4" fontWeight={700} gutterBottom>
+            <Typography variant="h4" sx={{  mb: 4,
+              fontWeight: 700,
+              borderLeft: "4px solid #dfcf40",
+              pl: 2 }} gutterBottom>
               About Me
             </Typography>
 

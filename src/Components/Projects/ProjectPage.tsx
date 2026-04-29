@@ -37,13 +37,13 @@ export const ProjectPage = () => {
         >
             Projects
         </Typography>
-        <Box  sx={{ display: "grid", gap: 2, gridTemplateColumns: "repeat(2, 1fr)"}}>
+        <Box  sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "repeat(1, 1fr)", md: "repeat(2, 1fr)" } }}>
             {projects.map((p, i) => (
                 <Card
                 key={i}
                 sx={{
                     mb: 3,
-                    background: "#1a1a1a",
+                    background: "#000",
                     border: "1px solid #2a2a2a",
                     transition: "0.3s",
                     "&:hover": {
