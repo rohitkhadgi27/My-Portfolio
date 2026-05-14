@@ -160,7 +160,7 @@ function ResponsiveAppBar() {
         </ThemeProvider>
         {pageSelected === 'HOME' && <HomePage />}
         {pageSelected === 'PROJECTS' && <ProjectPage />}
-        {pageSelected === 'ABOUT' && <AboutPage />}
+        {pageSelected === 'ABOUT' && <AboutPage myProjectBtn={setPageSelected} />}
         {pageSelected === 'SKILLS' && <SkillsPage />}
         {pageSelected === 'CONTACT' && <ContactPage />}
     </>  
