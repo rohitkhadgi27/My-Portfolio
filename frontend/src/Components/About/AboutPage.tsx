@@ -16,7 +16,6 @@ export const AboutPage = ({ myProjectBtn }: AboutPageProps) => {
   ];
 
   return (
-
     <Box sx={{ display: { xs: "grid", md: "flex" }, gap: 0.5, m: 0.5 }}>
       {/* Image Card */}
       <Card
@@ -29,16 +28,15 @@ export const AboutPage = ({ myProjectBtn }: AboutPageProps) => {
       >
         <CardMedia
           component="img"
-          height="520"
           image="./src/assets/rohit.png"
           alt="Rohit - Junior Web Developer"
-          sx={{ objectFit: "cover", }}
+          sx={{ objectFit: {md: "cover", xs: "contain"}, height: { md: 540, xs: 300 } }}
         />
         <CardContent>
-          <Typography variant="h5" sx={{ fontWeight: 700 }}>
+          <Typography variant="h5" sx={{ fontWeight: 700, textAlign: "center"}}>
             Rohit
           </Typography>
-          <Typography variant="body2" sx={{ color: "#bbb" }}>
+          <Typography variant="body2" sx={{ color: "#bbb", textAlign: "center" }}>
             Junior Web Developer
           </Typography>
         </CardContent>
@@ -76,22 +74,46 @@ export const AboutPage = ({ myProjectBtn }: AboutPageProps) => {
         </Typography>
 
         {/* Skills */}
-        <Box sx={{ display: "flex", flexWrap: "wrap", mb: 5, ml: -1.3, pt: 3, cursor: "default" }}>
-          <Typography gutterBottom variant="h6" sx={{ ml: 1, pt: 6, pr: 6 }} >
+        <Box sx={{ display: "flex", gridTemplateColumns: "repeat(2, 1fr)", cursor: "default" }}>
+
+          {/* SECTION TITLE */}
+          <Typography
+            gutterBottom
+            variant="h6"
+            sx={{ pt: 5, ml: 1, mb: 3, color: "#fff", fontWeight: "bold" }}
+          >
             Skills
           </Typography>
-          {skills.map(skill => (
-            <SkillCard img={skill.img} title={skill.title} />
-          ))};
+
+          {/* SKILLS WRAPPER */}
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 3,
+              ml: 1
+            }}
+          >
+            {skills.map(skill => (
+              <SkillCard key={skill.title} img={skill.img} title={skill.title} />
+            ))}
+          </Box>
         </Box>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{ display: "flex", flexWrap: "wrap", borderRadius: 2, justifyContent: "center", ml: "25%", mr: "25%" }}
-          onClick={() => myProjectBtn("PROJECTS")}
-        >
-          My Projects
-        </Button>
+        <Box sx={{ display: "flex", justifyContent: "center", ml: { md: -10, xs: 0 } }}>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              borderRadius: 2,
+              alignItems: "center"
+            }}
+            onClick={() => myProjectBtn("PROJECTS")}
+          >
+            My Projects
+          </Button>
+        </Box>
       </Card>
     </Box>
   );

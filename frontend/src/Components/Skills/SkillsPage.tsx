@@ -33,7 +33,7 @@ const skills = {
   ],
 };
 
-const skillLevels = {
+const skillLevels: Record<string, number> = {
   "HTML5 & CSS3": 60,
   JavaScript: 60,
   React: 60,
@@ -43,8 +43,8 @@ const skillLevels = {
   "Node.js": 55,
   Express: 54,
   "REST APIs": 50,
-  "PostgreSQL": 56,
-  "MongoDB": 50,
+  PostgreSQL: 56,
+  MongoDB: 50,
 
   "Git & GitHub": 63,
   "VS Code": 60,
@@ -104,12 +104,13 @@ export const SkillsPage = () => {
               sx={{
                 background: "#0b0f19",
                 border: "0px solid #2a2a2a",
+                borderRadius: "20px",
                 p: 2,
                 transition: "0.3s",
                 "&:hover": {
                   transform: "translateY(-4px)",
                   borderColor: "#6c63ff",
-                  boxShadow: "0 10px 15px rgba(108, 99, 255, 0.3)",
+                  boxShadow: "8px 10px 15px rgba(227, 227, 235, 0.5)",
                 },
               }}
             >

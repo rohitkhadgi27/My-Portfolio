@@ -1,0 +1,18 @@
+/* Change toast popup width & height */
+.Toastify__toast {
+  width: 250px !important;   /* your custom width */
+  min-height: 60px !important; /* your custom height */
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  margin-top: -30px;
+  margin-right: 40px;
+}
+px
+/* Optional: change success & error colors */
+.Toastify__toast--success {
+  background: #4caf50 !important;
+}
+
+.Toastify__toast--error {
+  background: #e53935 !important;
+}
